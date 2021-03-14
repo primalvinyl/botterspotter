@@ -1,0 +1,31 @@
+@import '../../styles/partials/breakpoints';
+@import '../../styles/partials/variables';
+
+.root {
+    .cookieConsent {
+        .contentWrapper {
+            padding: .5em 1em 1em 1em;
+            font-weight: normal;
+
+            h3 {
+                font-size: 1.8em;
+            }
+        }
+        .buttonWrapper {
+            padding: 0 2em 1em 1em;
+        }
+
+        @include breakpoint(lg-down){
+            .contentWrapper {
+                padding: .5em 1em 0 1em;
+        
+                p {
+                    margin: 0 0 .8em 0;
+                }
+            }
+            .buttonWrapper {
+                padding: 0 1em 1.5em 1em;
+            }
+        }
+    }
+}

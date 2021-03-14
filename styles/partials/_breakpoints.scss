@@ -1,0 +1,39 @@
+@mixin breakpoint($size) {
+    @if $size == xs {
+        @media (max-width: 599px) {
+            @content;
+        }
+    } @else if $size == sm-up {
+        @media (min-width: 600px) {
+            @content;
+        }
+    } @else if $size == md-up {
+        @media (min-width: 900px) {
+            @content;
+        }
+    } @else if $size == lg-up {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    } @else if $size == xl-up {
+        @media (min-width: 1800px) {
+            @content;
+        }
+    } @else if $size == sm-down {
+        @media (max-width: 600px) {
+            @content;
+        }
+    } @else if $size == md-down {
+        @media (max-width: 900px) {
+            @content;
+        }
+    } @else if $size == lg-down {
+        @media (max-width: 1200px) {
+            @content;
+        }
+    } @else if $size == xl-down {
+        @media (max-width: 1800px) {
+            @content;
+        }
+    }
+}

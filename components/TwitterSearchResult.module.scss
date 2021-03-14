@@ -1,0 +1,123 @@
+@import '../styles/partials/breakpoints';
+@import '../styles/partials/variables';
+
+
+
+.root {
+    background-color: $theme-screen;
+    border-radius: 10px;
+}
+
+
+
+.profile {
+    padding: 1.5em;
+    margin-bottom: 2em;
+    display: flex;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    &.na {
+        background: $theme-screen;
+        border-radius: 10px;
+    }
+    &.pass {
+        background: $score-pass;
+    }
+    &.warn {
+        background: $score-warn;
+    }
+    &.fail {
+        background: $score-fail;
+    }
+    .avatar {
+        margin: 0 .7em 0 0;
+    }
+    a {
+        text-decoration: none;
+        color: $gray-800;
+        h3 {
+            margin: 0;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        p {
+            margin: 0;
+        }
+    }
+    @include breakpoint(md-down){
+        padding: 1em;
+    }
+}
+
+
+
+.result {
+    padding: 0 2em 1em 2em;
+    display: flex;
+    flex-direction: row;
+    .score {
+        margin: 0 5em 0 2em;
+        text-align: center;
+    }
+    h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 1.5em;
+        font-weight: bold;
+        color: $white;
+    }
+    h2 {
+        margin: 0 0 .5em 0;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    p {
+        margin: 0;
+        padding: 0;
+        font-size: 1em;
+    }
+    ul {
+        margin: 0 0 1em 0;
+        padding: 0 0 0 1em;
+        text-align: left;
+        list-style-type: disc;
+    }
+    li {
+        margin: 0 0 .5em 0;
+    }
+    &.pass {
+        h2 {
+            color: $score-pass;
+        }
+    }
+    &.warn {
+        h2 {
+            color: $score-warn;
+        }
+    }
+    &.fail {
+        h2 {
+            color: $score-fail;
+        }
+    }
+    .buttonContainer {
+        .button {
+            margin: 1em 1em 2em 0;
+            background: $theme-dark;
+            color: $theme-bright01;
+        }
+    }
+    @include breakpoint(md-down){
+        flex-direction: column;
+        text-align: center;
+        .score {
+            margin: 0;
+        }
+        .buttonContainer {
+            .button {
+                width: 100%;
+                margin: .8em 0;
+            }
+        }
+    }
+}

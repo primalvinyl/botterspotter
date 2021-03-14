@@ -1,0 +1,63 @@
+// Colors
+$white:                   #ffffff !default;
+$gray-100:                #f8f9fa !default;
+$gray-200:                #e9ecef !default;
+$gray-300:                #dee2e6 !default;
+$gray-400:                #ced4da !default;
+$gray-500:                #adb5bd !default;
+$gray-600:                #6c757d !default;
+$gray-700:                #495057 !default;
+$gray-800:                #343a40 !default;
+$gray-900:                #212529 !default;
+$black:                   #000000 !default;
+
+$theme-light:             #c9a3c9 !default;
+$theme-medium:            #800080 !default;
+$theme-dark:              #3f013f !default;
+$theme-screen:            #6f006f !default;
+$theme-bright01:          #e55be5 !default;
+$theme-bright02:          #e55be5 !default;
+
+// Navigation
+$nav-unselected:          $theme-bright01 !default;
+$nav-selected:            $white !default;
+
+// Score
+$score-pass:              #69bd45 !default;
+$score-warn:              #f6eb14 !default;
+$score-fail:              #ed2024 !default;
+:export {
+    scorePass: $score-pass;
+    scoreWarn: $score-warn;
+    scoreFail: $score-fail
+}
+
+
+
+// Errors
+$error:                   red !default;
+
+
+
+// Typography
+$font-family-sans-serif:  'Noto Sans', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !default;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace:   source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace !default;
+$font-family-base:        $font-family-sans-serif !default;
+
+$font-size-base:          1rem !default; // Assumes the browser default, typically `16px`
+
+$line-height-base:        1.5 !default;
+
+$font-weight-light:       300 !default;
+$font-weight-normal:      400 !default;
+$font-weight-strong:      500 !default;
+$font-weight-bold:        700 !default;
+
+$font-weight-base:        $font-weight-normal !default;
+
+
+
+// Main Styles
+$body-bg:                 $theme-medium !default;
+$text-color:              $theme-light !default;

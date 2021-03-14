@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+
+@media (prefers-color-scheme: dark), (prefers-color-scheme: light) {
+    body {
+        margin: 0; // 1
+        font-family: $font-family-base;
+        font-size: $font-size-base;
+        font-weight: $font-weight-base;
+        line-height: $line-height-base;
+        color: $text-color;
+        text-align: left; // 3
+        background-color: $body-bg; // 2
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+        color: $text-color;
+    }
+
+    small {
+        font-size: .7em;
+    }
+
+    .grecaptcha-badge {
+        visibility: hidden;
+    }
+}

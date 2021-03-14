@@ -1,0 +1,116 @@
+@import '../styles/partials/breakpoints';
+@import '../styles/partials/variables';
+
+
+
+.root {
+    padding: 0 0 .5em 0;
+    @include breakpoint(xs){
+        padding: 0;
+    }
+}
+
+
+
+.navigation {
+    padding: 1.6em 0;
+    text-align: center;
+    border-bottom: 1px solid $theme-screen;
+    @include breakpoint(xs){
+        padding: 0;
+        text-align: right;
+        border-bottom: none;
+    }
+}
+.largeNav {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    li {
+        display: inline-block;
+        margin: 0 3%;
+    }
+    .isActive {
+        color: $nav-selected;
+        border-bottom: 1px solid $nav-selected;
+    }
+    a {
+        color: $nav-unselected;
+        text-decoration: none;
+        text-transform: uppercase;
+        outline: none;
+        padding: 0 0 .4em 0;
+        margin: 0;
+        &:hover {
+            border-bottom: 1px solid $nav-unselected;
+        }
+    }
+    @include breakpoint(md-down){
+        li {
+            margin: 0 2%;
+        }
+        a {
+            font-size: .8em;
+        }
+    }
+}
+.smallNav {
+    padding: 0;
+    margin: 0;
+    li {
+        list-style: none;
+        border-bottom: 1px solid $gray-800;
+        &:last-child {
+            border: none;
+        }
+    }
+    a {
+        width: 100%;
+        color: $white;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+        display: inline-block;
+        padding: 1.5em 0;
+        &:hover {
+            background-color: $black;
+        }
+        &:active {
+            background-color: $black;
+        }
+    }
+}
+
+
+
+.logoHead {
+    text-align: center;
+    margin: 1.5em 0 0 0;
+
+    a {
+        text-decoration: none;
+    }
+    h1 {
+        height: 2.5em;
+        width: 100%;
+        margin: 0 auto .4em auto;
+        background: url(/images/logotype.png) center no-repeat;
+        background-size: contain;
+        text-indent: -9000px;
+    }
+    p {
+        margin: 0;
+        font-size: 1.2em;
+        color: #50febf;
+    }
+    @include breakpoint(xs){
+        margin: 0;
+
+        h1 {
+            height: 2.2em;
+        }
+        p {
+            font-size: 1.1em;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+@import '../styles/partials/breakpoints';
+@import '../styles/partials/variables';
+
+
+
+.searchContainer {
+    width: 40%;
+    margin: 0 auto;
+    .searchField {
+        margin: 1em 0;
+    }
+    @include breakpoint(xl-down){
+        width: 50%;
+    }
+    @include breakpoint(lg-down){
+        width: 90%;
+    }
+}
+
+
+
+.resultContainer {
+    width: 40%;
+    margin: 2em auto;
+    @include breakpoint(xl-down){
+        width: 50%;
+    }
+    @include breakpoint(lg-down){
+        width: 90%;
+    }
+}
