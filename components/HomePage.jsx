@@ -10,6 +10,7 @@ import SearchForm from '../components/SearchForm';
 import CookieModal from './presentation/CookieModal';
 import { twitterSearchFetch, twitterSearchClear } from '../store/actions';
 import styles from './HomePage.module.scss';
+import { Divider } from '@material-ui/core';
 
 const ColorLinearProgress = withStyles({
     colorPrimary: {
@@ -58,8 +59,8 @@ const HomePage = () => {
                 <meta property="og:url" content={`https://botterspotter.com/${screenName}`} key="siteurl" />
                 <meta property="og:image" content={`https://botterspotter.com/images/score-${score}.png`} key="siteimage" />
             </Head>
-            <article>
-                <section className={styles.searchContainer}>
+            <main>
+                <div className={styles.searchContainer}>
                     {screenName !== undefined &&
                         <SearchForm
                             id="search-field"
@@ -73,17 +74,17 @@ const HomePage = () => {
                             startAdornment="@" />
                     }
                     {request_status === 'pending' &&
-                        <ColorLinearProgress />
+                        <ColorLinearProgress role="progressbar" />
                     }
-                </section>
+                </div>
                 {request_status === 'resolved' &&
                     <Grow in={ request_status === 'resolved' } >
-                        <section className={styles.resultContainer}>
+                        <div className={styles.resultContainer}>
                             <TwitterSearchResult testResult={twitterSearchResult} />
-                        </section>
+                        </div>
                     </Grow>
                 }
-            </article>
+            </main>
             <CookieModal />
         </React.Fragment>
     );

@@ -9,14 +9,14 @@ const Link = ({
         href,
         onClick,
         children,
-        ...other
+        ...restProps
     }) => {
     const router = useRouter();
     const transformedClass = (router && router.pathname) === href && activeClassName || className;
 
     return (
-        <NextLink href={href} {...other}>
-            <a className={transformedClass}>{children}</a>
+        <NextLink href={href} {...restProps}>
+            <a className={transformedClass} onClick={onClick}>{children}</a>
         </NextLink>
     );
 }

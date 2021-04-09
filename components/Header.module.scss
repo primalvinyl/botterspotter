@@ -5,109 +5,165 @@
 
 .root {
     padding: 0 0 .5em 0;
+    position: relative;
+
     @include breakpoint(xs){
         padding: 0;
     }
 }
 
-
-
-.navigation {
+nav.navigation {
     padding: 1.6em 0;
     text-align: center;
     border-bottom: 1px solid $theme-screen;
+
+    &.enter {
+        transform: translate(0, -500px);
+    }
+
+    &.enterActive {
+        transform: translate(0, 0);
+        transition: transform ease-in-out 400ms;
+    }
+
+    &.exit {
+        transform: translate(0, 0);
+    }
+
+    &.exitActive {
+        transform: translate(0, -500px);
+        transition: transform ease-in-out 400ms;
+    }
+
+    ul {
+        width: 90%;
+        margin: 0 auto;
+        padding: 0;
+
+        li {
+            display: inline-block;
+            margin: 0 3%;
+        }
+
+        a {
+            color: $nav-unselected;
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 0 0 .4em 0;
+            margin: 0;
+
+            &.isActive {
+                color: $nav-selected;
+                border-bottom: 1px solid $nav-selected;
+            }
+
+            &:hover, &:focus {
+                outline: none;
+                border-bottom: 1px solid $nav-unselected;
+            }
+        }
+    }
+
     @include breakpoint(xs){
         padding: 0;
-        text-align: right;
         border-bottom: none;
-    }
-}
-.largeNav {
-    width: 90%;
-    margin: 0 auto;
-    padding: 0;
-    li {
-        display: inline-block;
-        margin: 0 3%;
-    }
-    .isActive {
-        color: $nav-selected;
-        border-bottom: 1px solid $nav-selected;
-    }
-    a {
-        color: $nav-unselected;
-        text-decoration: none;
-        text-transform: uppercase;
-        outline: none;
-        padding: 0 0 .4em 0;
-        margin: 0;
-        &:hover {
-            border-bottom: 1px solid $nav-unselected;
-        }
-    }
-    @include breakpoint(md-down){
-        li {
-            margin: 0 2%;
-        }
-        a {
-            font-size: .8em;
-        }
-    }
-}
-.smallNav {
-    padding: 0;
-    margin: 0;
-    li {
-        list-style: none;
-        border-bottom: 1px solid $gray-800;
-        &:last-child {
-            border: none;
-        }
-    }
-    a {
+        background: $gray-800;
+        position: absolute;
+        top: 0;
+        right: 0;
         width: 100%;
-        color: $white;
-        text-decoration: none;
-        text-transform: uppercase;
-        text-align: center;
-        display: inline-block;
-        padding: 1.5em 0;
-        &:hover {
-            background-color: $black;
-        }
-        &:active {
-            background-color: $black;
+        z-index: 1;
+
+        ul {
+            width: 100%;
+        
+            li {
+                display: block;
+                margin: 0;
+                border-bottom: 1px solid $gray-900;
+                &:last-child {
+                    border-color: $black;
+                }
+            }
+        
+            a {
+                width: 100%;
+                text-align: center;
+                display: inline-block;
+                padding: 1.5em 0;
+
+                &.isActive {
+                    color: $nav-selected;
+                    border-bottom: 1px solid $gray-900;
+                    background-color: $black;
+                }
+        
+                &:hover, &:active, &:focus {
+                    background-color: $black;
+                }
+            }
         }
     }
 }
 
+.navToggle {
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    z-index: 2;
 
+    button {
+        fill: $gray-100;
+        background-color: transparent;
+        border: none;
+        border-radius: 50%;
+        padding: .3em .5em .1em .5em;
+
+        &:focus {
+            fill: $theme-medium;
+            background-color: $theme-light;
+        }
+    }
+}
 
 .logoHead {
     text-align: center;
     margin: 1.5em 0 0 0;
 
-    a {
-        text-decoration: none;
-    }
     h1 {
-        height: 2.5em;
-        width: 100%;
-        margin: 0 auto .4em auto;
-        background: url(/images/logotype.png) center no-repeat;
-        background-size: contain;
-        text-indent: -9000px;
+        a {
+            display: block;
+            outline: none;
+            text-indent: -9000px;
+            height: 65px;
+            width: 500px;
+            margin: 0 auto;
+            background: url(/images/logotype.png) center no-repeat;
+            background-size: contain;
+            border: 1px dotted transparent;
+
+            &:focus {
+                border-color: $nav-selected;
+            }
+        }
     }
+
     p {
         margin: 0;
         font-size: 1.2em;
         color: #50febf;
     }
+
     @include breakpoint(xs){
         margin: 0;
 
         h1 {
-            height: 2.2em;
+            padding: 3em 0 0 0;
+
+            a {
+                width: 315px;
+                height: 45px;
+            }
         }
         p {
             font-size: 1.1em;
