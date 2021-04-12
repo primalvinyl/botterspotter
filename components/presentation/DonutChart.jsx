@@ -8,10 +8,7 @@ const DonutChart = ({
         size,
         animationSpeed,
         unitText,
-        pathColor,
-        circleColor,
-        textColor,
-        className,
+        circleColor
     }) => {
 
     React.useEffect(() => {
@@ -311,16 +308,15 @@ const DonutChart = ({
     });
 
     return ( 
-        <div className={className}>
-            <svg id="svg">
-                <path id="path" stroke="none" strokeWidth="36" fill={pathColor}></path>
-                <circle id="circle" stroke="none" strokeWidth="2" fill={circleColor}></circle>
-                <text>
-                    <tspan id="number" fontWeight="bold" textAnchor="middle" fill={textColor}></tspan>
-                    <tspan id="unit" fontWeight="normal" textAnchor="middle" fill={textColor}></tspan>
-                </text>
-            </svg>
-        </div>
+        <svg id="svg" role="img" aria-labelledby="score">
+            <title id="score">{end} out of 10</title>
+            <path id="path" stroke="none" strokeWidth="36" fill="#212529"></path>
+            <circle id="circle" stroke="none" strokeWidth="2" fill={circleColor}></circle>
+            <text>
+                <tspan id="number" fontWeight="bold" textAnchor="middle" fill="#212529"></tspan>
+                <tspan id="unit" fontWeight="normal" textAnchor="middle" fill="#212529"></tspan>
+            </text>
+        </svg>
     ) 
 };
 
@@ -331,10 +327,7 @@ DonutChart.propTypes = {
     size: PropTypes.number,
     animationSpeed: PropTypes.number,
     unitText: PropTypes.string,
-    pathColor: PropTypes.string,
-    circleColor: PropTypes.string,
-    textColor: PropTypes.string,
-    className: PropTypes.string,
+    circleColor: PropTypes.string
 };
 
 DonutChart.defaultProps = {
@@ -344,10 +337,7 @@ DonutChart.defaultProps = {
     size: 200,
     animationSpeed: 1,
     unitText: '',
-    pathColor: 'white',
-    circleColor: 'black',
-    textColor: 'white',
-    className: '',
+    circleColor: 'black'
 };
 
 export default DonutChart;

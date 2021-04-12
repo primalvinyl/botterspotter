@@ -9,40 +9,43 @@
     margin: 3em 0 0 0;
     text-align: center;
 
-    ul {
-        display: flex;
-        justify-content: center;
-        margin: 0 0 1em 0;
-    }
-    li {
-        padding: 0 1.5em;
-    }
-    a {
-        color: $nav-unselected;
-        text-decoration: none;
-        outline: none;
-        &:hover {
-            text-decoration: underline,
+    nav {
+        ul {
+            display: flex;
+            justify-content: center;
+            margin: 0 0 1em 0;
+
+            li {
+                padding: 0 1.5em;
+            }
+        
+            a {
+                color: $nav-unselected;
+                text-decoration: none;
+        
+                &:hover, &:focus {
+                    outline: none;
+                    text-decoration: underline;
+                }
+            }
         }
     }
-    small {
-        color: $text-color;
-        a {
-            color: $text-color;
-        }
-    }
+
     @include breakpoint(xs){
         margin: 0;
         
-        ul {
-            display: block;
-            margin: 0;
+        nav {
+            ul {
+                display: block;
+                margin: 0;
+
+                li {
+                    display: block;
+                    width: 100%;
+                    margin: .5em auto;
+                    padding: 0;
+                } 
+            }
         }
-        li {
-            display: block;
-            width: 100%;
-            margin: .5em auto;
-            padding: 0;
-        } 
     }
 }

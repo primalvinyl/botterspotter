@@ -42,56 +42,51 @@ const TwitterSearchResult = ({ testResult }) => {
     }
 
     return (
-        <div className={styles.root}>
-            <div className={`${styles.profile} ${styles[testResultStyle]}`}>
-                <div className={styles.avatar}>
+        <article className={styles.root} aria-labelledby="name">
+            <section className={`${styles.profile} ${styles[testResultStyle]}`}>
+                <figure className={styles.avatar}>
                     <Avatar alt={screen_name} src={profile_image_url_https} />
-                </div>
+                </figure>
                 <div>
-                    { error &&
-                        <h3>{name}</h3>
-                        ||
-                        <a href={userLink} target="_blank" rel="noopener noreferrer">
-                            <h3>{name}</h3>
-                            <p>@{screen_name}</p> 
-                        </a>
-                    }
+                    <a href={userLink} target="_blank" rel="noopener noreferrer">
+                        <h1 id="name" aria-label="Name">{name}</h1>
+                        {screen_name && <p aria-label="Screen Name">@{screen_name}</p>}
+                    </a>
                 </div>
-            </div>
+            </section>
             { !error &&
                 <div className={`${styles.result} ${styles[testResultStyle]}`}>
-                    <div className={styles.score}>
-                        <p>BotterSpotter.com</p>
-                        <h1>Score</h1>
+                    <section className={styles.score} aria-labelledby="score">
+                        <h2 id="score"><span>BotterSpotter.com</span> Score</h2>
                         <DonutChart
                             end={newScore}
-                            circleColor={testResultColor}
-                            pathColor={'#212529'}
-                            textColor={'#212529'} />
-                    </div>
+                            circleColor={testResultColor} />
+                    </section>
                     <div>
-                        <h2>{score_conclusion}</h2>
-                        <ul>{score_reasonsList}</ul>
-                        <div className={styles.buttonContainer}>
+                        <section aria-labelledby="conclusion">
+                            <h3 id="conclusion">{score_conclusion}</h3>
+                            <ul>{score_reasonsList}</ul>
+                        </section>
+                        <section className={styles.buttonContainer} aria-label="Share Results">
                             <Button
                                 variant="contained"
                                 endIcon={<Icon>content_copy</Icon>}
                                 className={styles.button}
                                 onClick={() => copy(pageLink)}>
-                                Copy URL
+                                Copy Link
                             </Button>
                             <Button
                                 variant="contained"
                                 endIcon={<Icon>chat</Icon>}
                                 className={styles.button}
                                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(pageLink)}`}>
-                                Tweet
+                                Tweet Result
                             </Button>
-                        </div>
+                        </section>
                     </div>
                 </div>
             }
-        </div>
+        </article>
     )
 };
 

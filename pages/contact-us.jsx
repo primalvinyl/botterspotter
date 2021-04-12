@@ -57,97 +57,99 @@ const ContactForm = () => {
                 <meta property="og:image" content="" key="siteimage" />
                 <meta property="og:site_name" content="" key="sitename" />
             </Head>
-            <article className={styles.root}>
-                {requestStatus !== 'success' &&
-                    <React.Fragment>
-                        <section className={styles.headContent}>
-                            <h1>Contact Us</h1>
-                            <div className={styles.preface}>
-                                <p>We'd love to hear from you. Do you have suggestions? Would you like to report a score that you disagree with? Or maybe you just want to say hello. Use the form below, and we'll get back to you as soon as possible.</p>
-                            </div>
-                        </section>
-                        <section className={styles.contactForm}>
-                            <form onSubmit={submitHandler}>
-                                <p>All fields are required.</p>
-                                <fieldset className={styles.formFields}>
-                                    <TextField
-                                        variant="outlined"
-                                        name="name"
-                                        placeholder="Name"
-                                        required
-                                        autoComplete="name"
-                                        disabled={requestStatus === 'pending'}
-                                        value={name}
-                                        className={styles.field}
-                                        onChange={changeHandler}
-                                    />
-                                    <TextField
-                                        variant="outlined"
-                                        name="email"
-                                        placeholder="Email"
-                                        type="email"
-                                        required
-                                        autoComplete="email"
-                                        disabled={requestStatus === 'pending'}
-                                        value={email}
-                                        className={styles.field}
-                                        onChange={changeHandler}
-                                    />
-                                    <TextField
-                                        variant="outlined"
-                                        name="subject"
-                                        placeholder="Subject"
-                                        required
-                                        autoComplete="off"
-                                        disabled={requestStatus === 'pending'}
-                                        value={subject}
-                                        className={styles.field}
-                                        onChange={changeHandler}
-                                    />
-                                    <TextField
-                                        variant="outlined"
-                                        name="message"
-                                        placeholder="Message"
-                                        required
-                                        multiline
-                                        rows={10}
-                                        disabled={requestStatus === 'pending'}
-                                        value={message}
-                                        className={`${styles.field} ${styles.messageField}`}
-                                        onChange={changeHandler}
-                                    />
-                                </fieldset>
-                                <div className={styles.buttonWrapper}>
-                                    <Button
-                                        variant="contained"
-                                        type="submit"
-                                        endIcon={<Icon>send</Icon>}
-                                        disabled={requestStatus === 'pending'}
-                                        className={styles.button}>
-                                        Send
-                                    </Button>
-                                    {requestStatus === 'pending' &&
-                                        <CircularProgress size={24} className={styles.buttonProgress} />
-                                    }
+            <main>
+                <article className={styles.root} aria-labelledby="headline">
+                    {requestStatus !== 'success' &&
+                        <React.Fragment>
+                            <section className={styles.headContent}>
+                                <h1 id="headline">Contact Us</h1>
+                                <div className={styles.preface}>
+                                    <p>We'd love to hear from you. Do you have suggestions? Would you like to report a score that you disagree with? Or maybe you just want to say hello. Use the form below, and we'll get back to you as soon as possible.</p>
                                 </div>
-                            </form>
-                            {requestStatus === 'fail' &&
-                                <Alert severity="error" variant="filled">
-                                    Error. The message was not sent.
-                                </Alert>
-                            }
+                            </section>
+                            <section className={styles.contactForm}>
+                                <form onSubmit={submitHandler}>
+                                    <p>All fields are required.</p>
+                                    <fieldset className={styles.formFields}>
+                                        <TextField
+                                            variant="outlined"
+                                            name="name"
+                                            placeholder="Name"
+                                            required
+                                            autoComplete="name"
+                                            disabled={requestStatus === 'pending'}
+                                            value={name}
+                                            className={styles.field}
+                                            onChange={changeHandler}
+                                        />
+                                        <TextField
+                                            variant="outlined"
+                                            name="email"
+                                            placeholder="Email"
+                                            type="email"
+                                            required
+                                            autoComplete="email"
+                                            disabled={requestStatus === 'pending'}
+                                            value={email}
+                                            className={styles.field}
+                                            onChange={changeHandler}
+                                        />
+                                        <TextField
+                                            variant="outlined"
+                                            name="subject"
+                                            placeholder="Subject"
+                                            required
+                                            autoComplete="off"
+                                            disabled={requestStatus === 'pending'}
+                                            value={subject}
+                                            className={styles.field}
+                                            onChange={changeHandler}
+                                        />
+                                        <TextField
+                                            variant="outlined"
+                                            name="message"
+                                            placeholder="Message"
+                                            required
+                                            multiline
+                                            rows={10}
+                                            disabled={requestStatus === 'pending'}
+                                            value={message}
+                                            className={`${styles.field} ${styles.messageField}`}
+                                            onChange={changeHandler}
+                                        />
+                                    </fieldset>
+                                    <div className={styles.buttonWrapper}>
+                                        <Button
+                                            variant="contained"
+                                            type="submit"
+                                            endIcon={<Icon>send</Icon>}
+                                            disabled={requestStatus === 'pending'}
+                                            className={styles.button}>
+                                            Send
+                                        </Button>
+                                        {requestStatus === 'pending' &&
+                                            <CircularProgress size={24} className={styles.buttonProgress} />
+                                        }
+                                    </div>
+                                </form>
+                                {requestStatus === 'fail' &&
+                                    <Alert severity="error" variant="filled">
+                                        Error. The message was not sent.
+                                    </Alert>
+                                }
+                            </section>
+                        </React.Fragment>
+                    }
+                    {requestStatus === 'success' &&
+                        <section className={styles.contactResponse}>
+                            <h1>Thank You!</h1>
+                            <p>
+                                Your message was sent.
+                            </p>
                         </section>
-                    </React.Fragment>
-                }
-                {requestStatus === 'success' &&
-                    <section className={styles.contactResponse}>
-                        <h1>Thank You!</h1>
-                        <p>
-                            Your message was sent.
-                        </p>
-                    </section>
-                }
-            </article>
+                    }
+                </article>
+            </main>
             <CookieModal />
         </React.Fragment>
     );

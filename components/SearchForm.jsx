@@ -69,8 +69,8 @@ const SearchForm = ({
     };
 
     return (
-        <div className={className}>
-            <form className={materialStyles.root} onSubmit={handleSubmit}>
+        <section className={className} aria-label="Search Form">
+            <form className={materialStyles.root} onSubmit={handleSubmit} role="search">
                 <TextField
                     variant="outlined"
                     error={hasError}
@@ -121,7 +121,7 @@ const SearchForm = ({
                     }}
                 />
             </form>
-        </div>
+        </section>
     )
 };
 

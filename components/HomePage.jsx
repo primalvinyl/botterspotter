@@ -84,7 +84,7 @@ const HomePage = () => {
                         </div>
                     </Grow>
                 }
-            </main>
+            </main> 
             <CookieModal />
         </React.Fragment>
     );
